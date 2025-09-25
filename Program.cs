@@ -4,19 +4,43 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== Ejercicio 4: Circle Perimeter ===");
-        Console.Write("Ingrese el radio del círculo: ");
+        Console.WriteLine("=== Ejercicio 5: Midweek Day ===");
+        Console.Write("Ingrese un número (1-7): ");
 
         string entrada = Console.ReadLine();
 
-        if (double.TryParse(entrada, out double radio) && radio >= 0)
+        if (int.TryParse(entrada, out int dia))
         {
-            double perimetro = 2 * Math.PI * radio;
-            Console.WriteLine($"Resultado: {perimetro:F2}");
+            switch (dia)
+            {
+                case 1:
+                    Console.WriteLine("Lunes");
+                    break;
+                case 2:
+                    Console.WriteLine("Martes");
+                    break;
+                case 3:
+                    Console.WriteLine("Miércoles");
+                    break;
+                case 4:
+                    Console.WriteLine("Jueves");
+                    break;
+                case 5:
+                    Console.WriteLine("Viernes");
+                    break;
+                case 6:
+                case 7:
+                    Console.WriteLine("Número fuera del rango laboral.");
+                    break;
+                default:
+                    Console.WriteLine("Número inválido. Debe estar entre 1 y 7.");
+                    break;
+            }
         }
         else
         {
-            Console.WriteLine("Entrada inválida. Por favor ingrese un número positivo.");
+            Console.WriteLine("Entrada inválida. Por favor ingrese un número entero.");
         }
     }
 }
+
