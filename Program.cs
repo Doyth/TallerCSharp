@@ -4,31 +4,19 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== Ejercicio 3: Root or Square ===");
-        Console.Write("Ingrese un número: ");
+        Console.WriteLine("=== Ejercicio 4: Circle Perimeter ===");
+        Console.Write("Ingrese el radio del círculo: ");
 
         string entrada = Console.ReadLine();
 
-        if (int.TryParse(entrada, out int num))
+        if (double.TryParse(entrada, out double radio) && radio >= 0)
         {
-            if (num > 0)
-            {
-                double raiz = Math.Sqrt(num);
-                Console.WriteLine($"Resultado: {raiz}");
-            }
-            else if (num == 0)
-            {
-                Console.WriteLine("Resultado: 0");
-            }
-            else
-            {
-                int cuadrado = num * num;
-                Console.WriteLine($"Resultado: {cuadrado}");
-            }
+            double perimetro = 2 * Math.PI * radio;
+            Console.WriteLine($"Resultado: {perimetro:F2}");
         }
         else
         {
-            Console.WriteLine("Entrada inválida. Por favor ingrese un número entero.");
+            Console.WriteLine("Entrada inválida. Por favor ingrese un número positivo.");
         }
     }
 }
