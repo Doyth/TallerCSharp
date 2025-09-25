@@ -4,27 +4,29 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== Ejercicio 6: Tax Calculator ===");
-        Console.Write("Ingrese su salario anual: ");
+        Console.WriteLine("=== Ejercicio 7: Remainder Finder ===");
 
-        string entrada = Console.ReadLine();
+        Console.Write("Ingrese el primer número: ");
+        string entrada1 = Console.ReadLine();
 
-        if (double.TryParse(entrada, out double salario) && salario >= 0)
+        Console.Write("Ingrese el segundo número: ");
+        string entrada2 = Console.ReadLine();
+
+        if (int.TryParse(entrada1, out int a) && int.TryParse(entrada2, out int b))
         {
-            if (salario > 12000)
+            if (b == 0)
             {
-                double excedente = salario - 12000;
-                double impuesto = excedente * 0.15;
-                Console.WriteLine($"Debe pagar un impuesto de: {impuesto:F2}");
+                Console.WriteLine("Error: No se puede dividir entre cero.");
             }
             else
             {
-                Console.WriteLine("No debe impuestos.");
+                int residuo = a % b;
+                Console.WriteLine($"El residuo de {a} % {b} es: {residuo}");
             }
         }
         else
         {
-            Console.WriteLine("Entrada inválida. Por favor ingrese un número válido.");
+            Console.WriteLine("Entrada inválida. Debe ingresar números enteros.");
         }
     }
 }
