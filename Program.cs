@@ -4,29 +4,17 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== Ejercicio 7: Remainder Finder ===");
+        Console.WriteLine("=== Ejercicio 8: Sum of Evens ===");
 
-        Console.Write("Ingrese el primer número: ");
-        string entrada1 = Console.ReadLine();
-
-        Console.Write("Ingrese el segundo número: ");
-        string entrada2 = Console.ReadLine();
-
-        if (int.TryParse(entrada1, out int a) && int.TryParse(entrada2, out int b))
+        int suma = 0;
+        for (int i = 1; i <= 50; i++)
         {
-            if (b == 0)
+            if (i % 2 == 0)
             {
-                Console.WriteLine("Error: No se puede dividir entre cero.");
-            }
-            else
-            {
-                int residuo = a % b;
-                Console.WriteLine($"El residuo de {a} % {b} es: {residuo}");
+                suma += i;
             }
         }
-        else
-        {
-            Console.WriteLine("Entrada inválida. Debe ingresar números enteros.");
-        }
+
+        Console.WriteLine($"La suma de los números pares entre 1 y 50 es: {suma}");
     }
 }
