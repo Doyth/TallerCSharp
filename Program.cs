@@ -4,43 +4,27 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== Ejercicio 5: Midweek Day ===");
-        Console.Write("Ingrese un número (1-7): ");
+        Console.WriteLine("=== Ejercicio 6: Tax Calculator ===");
+        Console.Write("Ingrese su salario anual: ");
 
         string entrada = Console.ReadLine();
 
-        if (int.TryParse(entrada, out int dia))
+        if (double.TryParse(entrada, out double salario) && salario >= 0)
         {
-            switch (dia)
+            if (salario > 12000)
             {
-                case 1:
-                    Console.WriteLine("Lunes");
-                    break;
-                case 2:
-                    Console.WriteLine("Martes");
-                    break;
-                case 3:
-                    Console.WriteLine("Miércoles");
-                    break;
-                case 4:
-                    Console.WriteLine("Jueves");
-                    break;
-                case 5:
-                    Console.WriteLine("Viernes");
-                    break;
-                case 6:
-                case 7:
-                    Console.WriteLine("Número fuera del rango laboral.");
-                    break;
-                default:
-                    Console.WriteLine("Número inválido. Debe estar entre 1 y 7.");
-                    break;
+                double excedente = salario - 12000;
+                double impuesto = excedente * 0.15;
+                Console.WriteLine($"Debe pagar un impuesto de: {impuesto:F2}");
+            }
+            else
+            {
+                Console.WriteLine("No debe impuestos.");
             }
         }
         else
         {
-            Console.WriteLine("Entrada inválida. Por favor ingrese un número entero.");
+            Console.WriteLine("Entrada inválida. Por favor ingrese un número válido.");
         }
     }
 }
-
